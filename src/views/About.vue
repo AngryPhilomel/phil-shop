@@ -1,5 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">PhilShop</h1>
+    <p class="lead">Магазин певчих птиц с доставкой. Работаем в Москве и МО.</p>
   </div>
+</div>
 </template>

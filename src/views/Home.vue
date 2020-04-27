@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <Loader v-if="loading"/>
+    <div v-else class="row">
+      <HomeCard v-for="i in items" :key="i.id" :item="i"/>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HomeCard from '@/components/HomeCard'
 
 export default {
   name: 'Home',
+  data: () => ({
+    items: [],
+    loading: true
+  }),
+  async mounted() {
+    this.items = await this.$store.dispatch('fetchItems')
+    this.loading = false
+  },
   components: {
-    HelloWorld
-  }
+    HomeCard
+  },
 }
 </script>
